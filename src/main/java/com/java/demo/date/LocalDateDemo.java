@@ -1,5 +1,7 @@
 package com.java.demo.date;
 
+import org.junit.Test;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,7 +18,8 @@ import java.time.format.DateTimeFormatterBuilder;
  */
 public class LocalDateDemo {
 
-    public static void main(String[] args) {
+    @Test
+    public void main() {
 
         LocalDate localDate = LocalDate.now();
         System.out.println(localDate);
