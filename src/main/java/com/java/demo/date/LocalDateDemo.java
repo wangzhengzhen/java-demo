@@ -28,20 +28,20 @@ public class LocalDateDemo {
     @Test
     public void main() {
 
-        LocalDate localDate = LocalDate.now();
-        System.out.println(localDate);
-
-        LocalDateTime localDateTime = LocalDateTime.now();
-        System.out.println(localDateTime);
-
-        // 自定义格式化日期
-        DateTimeFormatterBuilder builder = new DateTimeFormatterBuilder();
-        builder.appendPattern("yyyy-MM-dd HH:mm:ss");
-        DateTimeFormatter formatter = builder.toFormatter();
-        System.out.println(formatter.format(localDateTime));
+//        LocalDate localDate = LocalDate.now();
+//        System.out.println(localDate);
+//
+//        LocalDateTime localDateTime = LocalDateTime.now();
+//        System.out.println(localDateTime);
+//
+//        // 自定义格式化日期
+//        DateTimeFormatterBuilder builder = new DateTimeFormatterBuilder();
+//        builder.appendPattern("yyyy-MM-dd HH:mm:ss");
+//        DateTimeFormatter formatter = builder.toFormatter();
+//        System.out.println(formatter.format(localDateTime));
 
         // 获得日期毫秒数
-        Long time = LocalDate.now().atStartOfDay().toInstant(ZoneOffset.of("+8")).toEpochMilli();
+        Long time = LocalDate.now().withDayOfMonth(LocalDate.now().getDayOfMonth() + 1).atStartOfDay().toInstant(ZoneOffset.of("+8")).toEpochMilli();
         System.out.println(time);
         Date date = new Date(time);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
