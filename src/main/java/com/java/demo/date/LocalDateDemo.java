@@ -2,10 +2,17 @@ package com.java.demo.date;
 
 import org.junit.Test;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
+import java.time.temporal.TemporalField;
+import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * DateTimeFormatter 线程安全 ，SimpleDateFormat 非线程安全
@@ -32,6 +39,13 @@ public class LocalDateDemo {
         builder.appendPattern("yyyy-MM-dd HH:mm:ss");
         DateTimeFormatter formatter = builder.toFormatter();
         System.out.println(formatter.format(localDateTime));
+
+        // 获得日期毫秒数
+        Long time = LocalDate.now().atStartOfDay().toInstant(ZoneOffset.of("+8")).toEpochMilli();
+        System.out.println(time);
+        Date date = new Date(time);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println(sdf.format(date));
     }
 
 }
