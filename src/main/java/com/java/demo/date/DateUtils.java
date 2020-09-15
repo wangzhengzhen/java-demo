@@ -13,7 +13,7 @@ public class DateUtils {
     public static Long getMilli(LocalDate date) {
 
         Long time = date.atStartOfDay().toInstant(ZoneOffset.of("+8")).toEpochMilli();
-        return time / 1000;
+        return time;
     }
 
     /**
@@ -24,7 +24,7 @@ public class DateUtils {
     public static Long getMilli(LocalDateTime datetime) {
 
         Long time = datetime.toInstant(ZoneOffset.of("+8")).toEpochMilli();
-        return time / 1000;
+        return time;
     }
 
     /**
@@ -37,7 +37,7 @@ public class DateUtils {
 
         LocalDate toDay = date.withDayOfMonth(date.getDayOfMonth() + day);
         Long time = toDay.atStartOfDay().toInstant(ZoneOffset.of("+8")).toEpochMilli();
-        return time / 1000;
+        return time;
     }
 
     /**
