@@ -93,4 +93,20 @@ public class DateUtils {
         return localDate;
     }
 
+    /**
+     * 将long格式化为以小时计算的格式
+     * @param mss
+     * @return
+     */
+    public static String formatLongTime(long mss) {
+
+        long l1 = mss % (60*60*1000);
+        long hours = (mss - l1) / (60 * 60 * 1000);
+        long l2 = l1 % (60 * 1000);
+        long minutes = (l1 - l2) / (60 * 1000);
+        long seconds = l2 / 1000;
+
+        return hours + ":" + minutes + ":" + seconds;
+    }
+
 }
